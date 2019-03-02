@@ -5,6 +5,7 @@ const passport = require('passport');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
 
 const keys = require('./config/keys');
 const User  = require('./models/user');
@@ -30,6 +31,9 @@ mongoose.connect(keys.mongoURI, {
 });
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Handlebar middleware
 app.engine('handlebars', exphbs({

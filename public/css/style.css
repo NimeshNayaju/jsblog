@@ -1,9 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Hind');
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-family: 'Hind', sans-serif;
 }
 
 main {
   flex: 1 0 auto;
+}
+
+.nav-wrapper .fa-bars {
+  font-size: 25px;
+}
+
+.footer {
+  margin-top: 20px;
+}
+
+
+h3 {
+  font-family: 'Anton', sans-serif;
+}
+
+p {
+  font-size: 18px;
 }

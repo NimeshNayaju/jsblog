@@ -1,1 +1,29 @@
-<h1>Blogs</h1>
+<h3>Blogs</h3>
+<div class="row">
+  {{#each blogs}}
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <a href="/blogs/update/{{id}}" class="btn-floating halfway-fab red">
+            <i class="fa fa-pencil"></i>
+          </a>
+        </div>
+        <div class="card-content center-align">
+          <h3>{{title}}</h3>
+          <p class="blog-body">{{body}}</p>
+          <br>
+
+          <div class="chip">
+            <img src="{{user.image}}">
+            {{user.firstName}} {{user.lastName}}
+          </div>
+        </div>
+        <div class="card-action center-align">
+          <a class="btn grey" href="/blogs/{{id}}">Continue reading</a>
+        </div>
+      </div>
+    </div>
+  {{else}}
+    <p>You have not uploaded any public blogs yet!</p>
+  {{/each}}
+</div>

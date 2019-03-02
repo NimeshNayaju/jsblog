@@ -1,1 +1,41 @@
-<h1>Create a Blog</h1>
+<h3>Create a Blog</h3>
+
+<div class="row">
+  <form action="/blogs" method="post" class="col s12">
+    <div class="row">
+      <div class="input-field">
+        <input type="text" name="title">
+        <label for="title">Title</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+        <select name="status">
+          <option value="public" selected>Public</option>
+          <option value="private">Private</option>
+          <option value="unpublished">Unpublished</option>
+        </select>
+        <label for="status">Status</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <p>
+        <label>
+          <input type="checkbox" name="allowComments" class="filled-in" id="filled-in-box" checked="checked">
+          <span for="filled-in-box">Allow comments</span>
+        </label>
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+        <h5>Comments</h5>
+        <textarea name="body"></textarea>
+      </div>
+    </div>
+
+    <input type="submit" value="Save" class="btn">
+  </form>
+</div>
