@@ -18,6 +18,9 @@ const auth = require('./routes/auth');
 const index = require('./routes/index');
 const blogs = require('./routes/blogs');
 
+// Handlebars helpers
+const {truncate, stripTags} = require('./helpers/hbs');
+
 // Map global promises
 mongoose.Promise = global.Promise;
 
@@ -35,8 +38,12 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Handlebar middleware
+// Handlebars middleware
 app.engine('handlebars', exphbs({
+  helpers: {
+    truncate: truncate, 
+    stripTags: stripTags
+  },
   defaultLayout: 'main'
 }));
 
