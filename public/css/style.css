@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Anton|Hind');
+@import url('https://fonts.googleapis.com/css?family=Gentium+Basic|Hind');
 
 body {
   display: flex;
@@ -21,9 +21,10 @@ main {
 
 
 h3 {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Gentium Basic', serif;
 }
 
 p {
   font-size: 18px;
 }
+

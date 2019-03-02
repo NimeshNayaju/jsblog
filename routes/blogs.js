@@ -43,4 +43,15 @@ router.post('/', (req, res) => {
     });
 });
 
+// Show blog
+router.get('/:id', (req, res) => {
+  Blog.findOne({
+    _id: req.params.id
+  })
+  .populate('user')
+  .then((blog) => {
+    res.render('blogs/show', {blog: blog});
+  })
+});
+
 module.exports = router;
