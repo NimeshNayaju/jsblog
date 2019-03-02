@@ -28,3 +28,14 @@ p {
   font-size: 18px;
 }
 
+.blog-body {
+  height: 120px;
+}
+
+.dash-status {
+  text-transform: capitalize;
+}
+
+#delete-form {
+  display: inline;
+}

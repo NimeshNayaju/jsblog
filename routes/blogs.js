@@ -43,6 +43,54 @@ router.post('/', (req, res) => {
     });
 });
 
+// Update blog GET
+router.get('/update/:id', ensureAuthenticated, (req, res) => {
+  Blog.findOne({
+    _id: req.params.id
+  })
+  .then((blog) => {
+    res.render('blogs/update', {
+      blog:blog
+    });
+  });
+});
+
+// Update blog PUT
+router.put('/:id', (req, res) => {
+  Blog.findOne({
+    _id: req.params.id
+  })
+  .then((blog) => {
+    let allowComments;
+  
+    if(req.body.allowComments) {
+      allowComments = true;
+    } else {
+      allowComments = false;
+    }
+
+    blog.title = req.body.title;
+    blog.body = req.body.body;
+    blog.status = req.body.status;
+    blog.allowComments = allowComments;
+
+    blog.save()
+      .then((blog) => {
+        res.redirect('/dashboard');
+      }); 
+  });
+});
+
+// Blog Delete 
+router.delete('/:id', (req, res) => {
+  Blog.deleteOne({
+    _id: req.params.id
+  })
+  .then(() => {
+    res.redirect('/dashboard');
+  })
+});
+
 // Show blog
 router.get('/:id', (req, res) => {
   Blog.findOne({

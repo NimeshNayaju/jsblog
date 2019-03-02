@@ -1,2 +1,33 @@
 <h3>Hi, {{user.firstName}}</h3>
 <hp>Here are all your stories:</p>
+
+{{#if blogs}}
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each blogs}}
+        <tr>
+          <td><a href="/blogs/{{id}}">{{title}}</a></td>
+          <td>{{formatDate date 'MMMM Do YYYY'}}</td>
+          <td><span class="dash-status">{{status}}</span></td>
+          <td>
+            <a href="/blogs/update/{{id}}" class="btn left-align"><i class="fa fa-pencil"></i> Edit</a>
+            <form id="delete-form" action="/blogs/{{id}}?_method=DELETE" method="post" >
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="btn red"><i class="fa fa-remove"></i> Delete</button>
+            </form>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p>You have not uploaded any blogs yet!</p>
+{{/if}}
