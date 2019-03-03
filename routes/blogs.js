@@ -104,7 +104,19 @@ router.get('/:id', (req, res) => {
   .populate('comments.commentUser')
   .populate('user')
   .then((blog) => {
-    res.render('blogs/show', {blog: blog});
+    if(blog.status == 'public') {
+      res.render('blogs/show', {blog: blog});
+    } else {
+      if(req.user) {
+        if(req.user.id == blog.user._id) {
+          res.render('blogs/show', {blog: blog});
+        } else {
+          res.redirect('/blogs');
+        }
+      } else {
+        res.redirect('/blogs');
+      }
+    }
   })
 });
 
@@ -129,7 +141,7 @@ router.post('/comments/:id', (req, res) => {
 });
 
 // List blogs from a specific user
-router.get('/user/:userID',ensureAuthenticated, (req, res) => {
+router.get('/user/:userID', (req, res) => {
   Blog.find({
     user: req.params.userID,
     status: 'public'
@@ -143,7 +155,7 @@ router.get('/user/:userID',ensureAuthenticated, (req, res) => {
 }); 
 
 // List blogs from the logged in user
-router.get('/my/:userID', (req, res) => {
+router.get('/my/:userID',ensureAuthenticated, (req, res) => {
   Blog.find({
     user: req.user.id
   })
