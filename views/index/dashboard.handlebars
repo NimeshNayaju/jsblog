@@ -18,7 +18,7 @@
           <td>{{formatDate date 'MMMM Do YYYY'}}</td>
           <td><span class="dash-status">{{status}}</span></td>
           <td>
-            <a href="/blogs/update/{{id}}" class="btn left-align"><i class="fa fa-pencil"></i> Edit</a>
+            <a href="/blogs/update/{{id}}" class="btn left-align"><i class="fa fa-pencil"></i> Update</a>
             <form id="delete-form" action="/blogs/{{id}}?_method=DELETE" method="post" >
               <input type="hidden" name="_method" value="DELETE">
               <button type="submit" class="btn red"><i class="fa fa-remove"></i> Delete</button>

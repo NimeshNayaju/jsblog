@@ -7,6 +7,7 @@ const User = require('../models/user');
 // Blog index
 router.get('/', (req, res) => {
   Blog.find({status: 'public'})
+    .sort({date: 'desc'})
     .populate('user')
     .then((blogs) => {
       res.render('blogs/index', {blogs: blogs});
@@ -49,9 +50,13 @@ router.get('/update/:id', ensureAuthenticated, (req, res) => {
     _id: req.params.id
   })
   .then((blog) => {
-    res.render('blogs/update', {
-      blog:blog
-    });
+    if(blog.user != req.user.id) {
+      res.redirect('/blogs')
+    } else {
+      res.render('blogs/update', {
+        blog:blog
+      });
+    }    
   });
 });
 
@@ -96,10 +101,31 @@ router.get('/:id', (req, res) => {
   Blog.findOne({
     _id: req.params.id
   })
+  .populate('comments.commentUser')
   .populate('user')
   .then((blog) => {
     res.render('blogs/show', {blog: blog});
   })
+});
+
+// Add comment POST
+router.post('/comments/:id', (req, res) => {
+  Blog.findOne({
+    _id: req.params.id
+  })
+  .then((blog) => {
+    const newComment = {
+      commentBody: req.body.commentBody,
+      commentUser: req.user.id
+    }
+
+    blog.comments.unshift(newComment);
+
+    blog.save()
+      .then((blog) => {
+        res.redirect(`/blog/{{blog.id}}`);
+      });
+  });
 });
 
 module.exports = router;
