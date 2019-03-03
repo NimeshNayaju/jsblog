@@ -25,7 +25,7 @@
           <li class="divider"></li>
           {{#if user}}
             <li><a href="/dashboard"><i class="fa fa-cog"></i> Dashboard</a></li>
-            <li><a href="/blogs/my"><i class="fa fa-user"></i> My Blogs</a></li>
+            <li><a href="/blogs/my/{{user.id}}"><i class="fa fa-user"></i> My Blogs</a></li>
             <li><a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
           {{else}}
           {{/if}}

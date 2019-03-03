@@ -123,8 +123,35 @@ router.post('/comments/:id', (req, res) => {
 
     blog.save()
       .then((blog) => {
-        res.redirect(`/blog/{{blog.id}}`);
+        res.redirect(`/blogs/${blog.id}`);
       });
+  });
+});
+
+// List blogs from a specific user
+router.get('/user/:userID',ensureAuthenticated, (req, res) => {
+  Blog.find({
+    user: req.params.userID,
+    status: 'public'
+  })
+  .populate('user')
+  .then((blogs) => {
+    res.render('blogs/index', {
+      blogs: blogs
+    });
+  });
+}); 
+
+// List blogs from the logged in user
+router.get('/my/:userID', (req, res) => {
+  Blog.find({
+    user: req.user.id
+  })
+  .populate('user')
+  .then((blogs) => {
+    res.render('blogs/index', {
+      blogs: blogs
+    });
   });
 });
 
