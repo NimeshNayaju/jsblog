@@ -11,6 +11,10 @@ main {
   flex: 1 0 auto;
 }
 
+a:hover {
+  transition: .1s background-color,.1s border-color,.1s color,.1s fill;
+}
+
 .nav-header {
   background: #fff;
   font-size: 16px;
@@ -19,7 +23,8 @@ main {
 
 .nav-header .brand-logo {
   color: rgba(0,0,0,.84);
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 24px;
 }
 
 .nav-header li a {
@@ -94,3 +99,95 @@ p {
 .public-blog-list .blog-title {
   height: 50px;
 }
+
+.brand-logo img {
+  width: 50px;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 992px)
+{
+  .blog-body p {
+    font-size: 16px;
+  }
+
+  .blog-body {
+    height: 140px;
+  }
+}
+
+@media only screen and (max-width: 601px)
+{
+  nav .brand-logo {
+    font-size: 20px!important;
+  }
+
+  .blog-body p {
+    font-size: 16px;
+  }
+
+  .blog-body {
+    height: 120px;
+  }
+}
+
+
+.show-blog .comment-card .card-content p {
+  font-size: 16px;
+}
+
+.show-blog .comments span.card-title {
+  font-size: 19px;
+}
+
+.show-blog .blog {
+  box-shadow: none;
+}
+
+.show-blog .blog .card-content {
+  padding: 0;
+}
+
+.show-blog .blog-intro {
+  margin-bottom: 10px;
+}
+
+.show-blog .show-title {
+  margin-bottom: 20px;
+}
+
+.show-blog .card-title {
+  font-size: 18px;
+}
+
+.comment-card .chip {
+  margin-bottom: 15px;
+}
+
+.show-blog .title-user img {
+  height: 60px;
+}
+
+.show-blog .title-user {
+  display: flex;
+}
+
+.show-blog .title-user-info {
+  padding: 5px 15px;
+}
+
+.show-blog .title-user-info p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.show-blog .title-user-info a {
+  color: rgba(0,0,0,.9);
+}
+
+.show-blog .title-user-info a:hover {
+  color: rgba(0,0,0,.9);
+  text-decoration: underline !important;
+}
+
+

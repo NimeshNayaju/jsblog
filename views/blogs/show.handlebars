@@ -1,12 +1,24 @@
-<div class="row">
-  <h3 class="show-title">{{blog.title}} <small>{{{editIcon blog.user.id user.id blog.id false}}}</small></h3>
-  <div class="col s12 m8">
+<div class="row show-blog">
+  <div class="blog-intro">
+    <h3 class="show-title">{{blog.title}} <small>{{{editIcon blog.user.id user.id blog.id false}}}</small></h3>
+    <div class="title-user">
+      <img src="{{blog.user.image}}" class="circle responsive-img">
+      <div class="title-user-info">
+        <a href="/blogs/user/{{blog.user.id}}"><p>{{blog.user.firstName}} {{blog.user.lastName}}</p></a>
+        <p class="card-title">{{formatDate blog.date 'MMMM Do YYYY'}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col m12">
     <div class="card blog">
       <div class="card-content">
-        <span class="card-title">{{formatDate blog.date 'MMMM Do YYYY'}}</span>
         {{{blog.body}}}
       </div>
     </div>
+  </div>
+  
+  <div class="col m12 comments">
     {{#if blog.allowComments}}
       <div class="card">
         <div class="card-content">
@@ -26,30 +38,18 @@
       </div>
 
       {{#each blog.comments}}
-      <div class="card">
+      <div class="card comment-card">
         <div class="card-content">
-          <h5>{{commentBody}}</h5>
           <div class="chip">
             <img src="{{commentUser.image}}">
             <a href="/blogs/user/{{commentUser.id}}">{{commentUser.firstName}} {{user.lastName}}</a>
           </div>
+          <p>{{commentBody}}</p>
           <br>
           <small>Posted: {{formatDate commentDate 'MMMM Do YYYY'}}</small>
         </div>
       </div>
       {{/each}}
     {{/if}}
-  </div>
-  
-  <div class="col s12 m4">
-    <div class="card center-align">
-      <div class="card-content">
-        <span class="card-title">{{blog.user.firstName}} {{blog.user.lastName}}</span>
-        <img src="{{blog.user.image}}" class="circle responsive-img">
-      </div>
-      <div class="card-action">
-        <a href="/blogs/user/{{blog.user.id}}">More from {{blog.user.firstName}}</a>
-      </div>
-    </div>
   </div>
 </div>
