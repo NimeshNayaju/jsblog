@@ -1,7 +1,7 @@
 <nav class="nav-header">
   <div class="container">
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo"><img src="/img/logo.png" class="responsive-img">jsblogs</a>
+      <a href="/" class="brand-logo hide-on-small-only"><img src="/img/logo.png" class="responsive-img">jsblogs</a>
       <a href="#" data-target="main-menu" class="sidenav-trigger show-on-small"><i class="fa fa-bars"></i></a>
 
       <ul class="right">
@@ -11,7 +11,7 @@
           <li><a href="/dashboard"><img src="{{user.image}}" class="user-avatar circle responsive-img"></a></li>
         {{else}}
           <li><a href="/blogs" class="nav-bordered">Blogs</a></li>
-          <li><a href="/auth/google"><i class="fa fa-google left"></i>Login</a></li>
+          <li><a href="/auth/google" class="nav-login"><i class="fa fa-google left"></i>Login</a></li>
         {{/if}}
       </ul>
 

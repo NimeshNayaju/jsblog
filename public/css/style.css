@@ -31,6 +31,17 @@ a:hover {
   color: rgba(0,0,0,.54);
 }
 
+.nav-header .nav-login {
+  color: rgba(0,0,0,.70) !important;
+  line-height: 32px;
+  position: relative;
+  margin-top: 16px;
+}
+
+.nav-header .nav-login i {
+  line-height: 30px;
+}
+
 .sidenav-trigger {
   color: rgba(0,0,0,.84);
 }
