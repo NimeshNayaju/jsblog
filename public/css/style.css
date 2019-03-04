@@ -89,5 +89,8 @@ p {
 
 .show-title {
   word-break: break-all;
+}
+
+.public-blog-list .blog-title {
   height: 50px;
 }
