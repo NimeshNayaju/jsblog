@@ -11,6 +11,48 @@ main {
   flex: 1 0 auto;
 }
 
+.nav-header {
+  background: #fff;
+  font-size: 16px;
+  box-shadow: none;
+}
+
+.nav-header .brand-logo {
+  color: rgba(0,0,0,.84);
+  font-weight: 700;
+}
+
+.nav-header li a {
+  color: rgba(0,0,0,.54);
+}
+
+.sidenav-trigger {
+  color: rgba(0,0,0,.84);
+}
+
+.nav-header li a:hover {
+  background-color: transparent;
+  color: rgba(0,0,0,.84);
+  transition: .1s background-color,.1s border-color,.1s color,.1s fill;
+}
+
+.nav-dashboard {
+  border: 1px solid rgba(0,0,0,.60);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  font-weight: 700;
+  color: rgba(0,0,0,.70) !important;
+  line-height: 32px;
+  position: relative;
+  margin-top: 16px;
+}
+
+.nav-dashboard:hover {
+  border: 1px solid rgba(0,0,0,.84);
+  color: rgba(0,0,0,.84) !important;
+}
+
+
 .nav-wrapper .fa-bars {
   font-size: 25px;
 }
@@ -38,4 +80,9 @@ p {
 
 #delete-form {
   display: inline;
+}
+
+.user-avatar {
+  width: 45px;
+  vertical-align: middle;
 }

@@ -3,8 +3,8 @@ const router = express.Router();
 const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 const Blog = require('../models/blog');
 
-router.get('/', ensureGuest, (req, res) => {
-  res.render('index/welcome');
+router.get('/', (req, res) => {
+  res.redirect('/blogs');
 });
 
 router.get('/dashboard', ensureAuthenticated, (req, res) => {
