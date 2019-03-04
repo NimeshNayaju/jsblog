@@ -6,12 +6,12 @@
 
       <ul class="right hide-on-small-only">
         {{#if user}}
-          <li><a href="/dashboard" class=" nav-dashboard">Dashboard</a></li>
+          <li><a href="/dashboard" class=" nav-bordered">Dashboard</a></li>
           <li><a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
           <li><a href="/dashboard"><img src="{{user.image}}" class="user-avatar circle responsive-img"></a></li>
         {{else}}
-          <li><a href="/blogs"><i class="fa fa-book"></i> Blogs</a></li>
-          <li><a href="/auth/google"><i class="fa fa-google left"></i> Login</a></li>
+          <li><a href="/blogs" class="nav-bordered">Blogs</a></li>
+          <li><a href="/auth/google"><i class="fa fa-google left"></i>Login</a></li>
         {{/if}}
       </ul>
 
