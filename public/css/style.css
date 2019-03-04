@@ -89,4 +89,5 @@ p {
 
 .show-title {
   word-break: break-all;
+  height: 50px;
 }

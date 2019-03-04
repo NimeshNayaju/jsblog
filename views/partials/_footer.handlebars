@@ -16,8 +16,11 @@
   </div>
   <div class="footer-copyright">
     <div class="container">
-      © 2019 JsBlogs
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      © 
+      <span id="copyright">
+        <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+      </span> 
+      Nimesh Nayaju
     </div>
   </div>
 </footer>
